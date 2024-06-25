@@ -77,7 +77,9 @@ To maintain modular independence within our application, we enforce strict rules
 Implementing a unidirectional codebase architecture ensures that code flows in one direction, from shared parts of the code to the application.
 This is a good practice to follow as it makes the codebase more predictable and easier to understand.
 
-`Shared` → `Features` → `App`
+`Shared` → `Application`
+
+`Shared` → `Features` → `Application`
 
 ![Unidirectional Codebase Architecture diagram](assets/unidirectional-codebase.png)
 
