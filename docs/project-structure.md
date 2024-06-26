@@ -4,9 +4,10 @@ Most of the code lives in the `src` folder and looks something like this:
 
 ```sh
 /app               # application layer containing:
-    .../routes        # application routes
-    .../app.tsx       # main application component
-    .../app-provider  # application provider that wraps the entire application with global providers.
+    .../layouts             # application routes layouts
+    .../routes              # application routes
+    .../app-provider.tsx    # application provider that wraps the entire application with global providers.
+    .../app.tsx             # main application component
 /assets            # assets folder can contain all the static files such as images, fonts, etc.
 /components        # shared components used across the entire application
 /config            # global configurations, exported env variables etc.
