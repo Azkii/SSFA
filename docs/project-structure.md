@@ -84,7 +84,7 @@ This is a good practice to follow as it makes the codebase more predictable and 
 
 ![Unidirectional Codebase Architecture diagram](assets/unidirectional-codebase.png)
 
-To enforce this, you can use ESLint:
+#### To enforce this, you can use ESLint:
 
 ```js
 'import/no-restricted-paths': [
