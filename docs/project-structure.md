@@ -1,6 +1,6 @@
 ## Project Structure
 
-Most of the code lives in the `src` folder and looks something like this:
+Project code lives in the src directory:
 
 ```sh
 /app               # application layer containing:
