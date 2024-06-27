@@ -16,7 +16,7 @@ Project code lives in the src directory:
 /lib               # reusable libraries preconfigured for the application
 /stores            # global state stores
 /test              # test utilities and mocks
-/types             # shared types used across the application
+/shared-types      # shared types used across the application
 /utils             # shared utility functions
 /mocks             # API calls mocks
 ```
@@ -84,7 +84,7 @@ This is a good practice to follow as it makes the codebase more predictable and 
 
 ![Unidirectional Codebase Architecture diagram](assets/unidirectional-codebase.png)
 
-#### To enforce this, you can use ESLint:
+[To enforce this, you can use ESLint:](#unidirectional-codebase-eslint-rule)
 
 ```js
 'import/no-restricted-paths': [
@@ -103,7 +103,7 @@ This is a good practice to follow as it makes the codebase more predictable and 
                 './src/components',
                 './src/hooks',
                 './src/lib',
-                './src/types',
+                './src/shared-types',
                 './src/utils',
             ],
             from: ['./src/features', './src/app'],
