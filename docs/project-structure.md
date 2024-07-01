@@ -84,6 +84,12 @@ Enforce a Unidirectional Codebase Architecture using the specified configuration
 
 To maintain modular independence within our application, we enforce strict rules against cross-feature imports. This practice ensures that each feature remains self-contained, fostering a cleaner and more organized codebase.
 
+<span style="color: gray; font-style: italic;">
+    NOTE: If a feature needs to be used as a shared component in other features, developers must add the middle extension '.shared' to the filename (e.g., 'feature.shared.tsx').
+    This naming convention helps us distinguish which features are shared across different modules.
+    </br></br>
+</span>
+
 ```json
   "import/no-restricted-paths": [
     "error",
