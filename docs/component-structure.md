@@ -11,9 +11,9 @@ IMPORTANT: If a component has significant logic beyond rendering (i.e., it's not
 For each component, maintain a cohesive folder structure:
 
 ```sh
-Button/
-├── Button.tsx           # contains the JSX and logic for the Button component.
-└── Button.module.css    # css module for scoped styles specific to the Button component.
+button/
+├── button.tsx           # contains the JSX and logic for the Button component.
+└── button.module.css    # css module for scoped styles specific to the Button component.
 ```
 
 ### Component Example
@@ -22,7 +22,7 @@ Button/
 // Button.tsx
 import React, { ButtonHTMLAttributes, ReactNode } from "react";
 import clsx, { ClassArray } from "clsx";
-import style from "./style.module.scss";
+import style from "./button.module.scss";
 
 type Size = "small" | "medium" | "large";
 type ButtonVariant = "solid" | "bordered";
