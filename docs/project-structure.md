@@ -54,6 +54,8 @@ This is a good practice to follow as it makes the codebase more predictable and 
 
 ## Enforce Unidirectional Codebase Architecture
 
+Enforce a Unidirectional Codebase Architecture using the specified configuration for import/no-restricted-paths in eslint. This setup is designed to control import paths strictly within designated zones, ensuring a clear and predictable flow of dependencies throughout the codebase.
+
 ```json
   "import/no-restricted-paths": [
     "error",
