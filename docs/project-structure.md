@@ -3,22 +3,22 @@
 Project code lives in the src directory:
 
 ```sh
-/app               # application layer containing:
+/app             # application layer containing:
     .../layouts             # application routes layouts
     .../routes              # application routes
     .../app-provider.tsx    # application provider that wraps the entire application with global providers.
     .../app.tsx             # main application component
-/assets            # assets folder can contain all the static files such as images, fonts, etc.
-/components        # shared components used across the entire application
-/config            # global configurations, exported env variables etc.
-/features          # feature based modules
-/hooks             # shared hooks used across the entire application
-/lib               # reusable libraries preconfigured for the application
-/stores            # global state stores
-/test              # test utilities and mocks
-/shared-types      # shared types used across the application
-/utils             # shared utility functions
-/mocks             # API calls mocks
+/assets          # assets folder can contain all the static files such as images, fonts, etc.
+/components      # shared components used across the entire application
+/config          # global configurations, exported env variables etc.
+/features        # feature based modules
+/hooks           # shared hooks used across the entire application
+/lib             # reusable libraries preconfigured for the application
+/stores          # global state stores
+/test            # test utilities and mocks
+/shared-types    # shared types used across the application
+/utils           # shared utility functions
+/mocks           # API calls mocks
 ```
 
 ## Feature structure
@@ -31,14 +31,14 @@ For easy scalability and maintenance, organize most of the code within the featu
 </span>
 
 ```sh
-/features/awesome-feature # feature directory
-    .../api         # exported API request declarations and api hooks related to a specific feature
-    .../assets      # assets folder can contain all the static files for a specific feature
-    .../components  # components scoped to a specific feature
-    .../hooks       # hooks scoped to a specific feature
-    .../stores      # state stores for a specific feature
-    .../types       # typescript types used within the feature
-    .../utils       # utility functions for a specific feature
+/features/awesome-feature    # feature directory
+    .../api           # exported API request declarations and api hooks related to a specific feature
+    .../assets        # assets folder can contain all the static files for a specific feature
+    .../components    # components scoped to a specific feature
+    .../hooks         # hooks scoped to a specific feature
+    .../stores        # state stores for a specific feature
+    .../types         # typescript types used within the feature
+    .../utils         # utility functions for a specific feature
 ```
 
 ## Forbid cross feature imports

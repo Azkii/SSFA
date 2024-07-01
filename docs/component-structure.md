@@ -15,3 +15,35 @@ Button/
 ├── Button.tsx           # contains the JSX and logic for the Button component.
 └── Button.module.css    # css module for scoped styles specific to the Button component.
 ```
+
+### Component Example
+
+```tsx
+import React from "react";
+import styles from "./Button.module.css";
+
+interface ButtonProps {
+  onClick: () => void;
+  disabled?: boolean;
+  className?: string;
+}
+
+const Button: React.FC<ButtonProps> = ({
+  onClick,
+  disabled,
+  className,
+  children,
+}) => {
+  return (
+    <button
+      className={`${styles.button} ${className ?? ""}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;
+```
