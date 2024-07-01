@@ -19,31 +19,44 @@ Button/
 ### Component Example
 
 ```tsx
-import React from "react";
-import styles from "./Button.module.css";
+// Button.tsx
+import React, { ButtonHTMLAttributes, ReactNode } from "react";
+import clsx, { ClassArray } from "clsx";
+import style from "./style.module.scss";
 
-interface ButtonProps {
-  onClick: () => void;
-  disabled?: boolean;
-  className?: string;
+type Size = "small" | "medium" | "large";
+type ButtonVariant = "solid" | "bordered";
+type ButtonColor = "primary" | "secondary";
+
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  color?: ButtonColor;
+  variant?: ButtonVariant;
+  size?: Size;
+  classNames?: ClassArray;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  onClick,
-  disabled,
-  className,
+export const Button = ({
   children,
-}) => {
+  color = "primary",
+  variant = "solid",
+  size = "medium",
+  classNames = [],
+  ...props
+}: Props) => {
   return (
     <button
-      className={`${styles.button} ${className ?? ""}`}
-      onClick={onClick}
-      disabled={disabled}
+      className={clsx(
+        style.button,
+        style[`button-${size}`],
+        style[`button-${variant}`],
+        style[`button-${color}`],
+        ...classNames
+      )}
+      {...props}
     >
       {children}
     </button>
   );
 };
-
-export default Button;
 ```
