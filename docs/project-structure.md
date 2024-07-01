@@ -41,38 +41,6 @@ For easy scalability and maintenance, organize most of the code within the featu
     .../utils         # utility functions for a specific feature
 ```
 
-## Forbid cross feature imports
-
-To maintain modular independence within our application, we enforce strict rules against cross-feature imports. This practice ensures that each feature remains self-contained, fostering a cleaner and more organized codebase.
-
-```js
-// ESLint configuration for restricting paths between feature modules .eslintrc
-'import/no-restricted-paths': [
-    'error',
-    {
-        zones: [
-            // disables cross-feature imports:
-            // eg. src/features/discussions should not import from src/features/comments, etc.
-            {
-                target: './src/features/comments',
-                from: './src/features',
-                except: ['./comments'],
-            },
-            {
-                target: './src/features/discussions',
-                from: './src/features',
-                except: ['./discussions'],
-            },
-            {
-                target: './src/features/teams',
-                from: './src/features',
-                except: ['./teams'],
-            }
-        ],
-    },
-],
-```
-
 ## Unidirectional Codebase Architecture
 
 Implementing a unidirectional codebase architecture ensures that code flows in one direction, from shared parts of the code to the application.
@@ -84,31 +52,48 @@ This is a good practice to follow as it makes the codebase more predictable and 
 
 ![Unidirectional Codebase Architecture diagram](assets/unidirectional-codebase.png)
 
-[To enforce this, you can use ESLint:](#unidirectional-codebase-eslint-rule)
+## Enforce Unidirectional Codebase Architecture
 
-```js
-'import/no-restricted-paths': [
-    'error',
+```json
+  "import/no-restricted-paths": [
+    "error",
     {
-    zones: [
-        // enforce unidirectional codebase:
-        // e.g. src/app can import from src/features but not the other way around
+      "zones": [
+        { "target": ["./src/features", "./src/layouts"], "from": "./src/app" },
         {
-            target: './src/features',
-            from: './src/app',
-        },
-        // e.g src/features and src/app can import from these shared modules but not the other way around
+          "target": [
+            "./src/assets",
+            "./src/components",
+            "./src/config",
+            "./src/hooks",
+            "./src/lib",
+            "./src/mocks",
+            "./src/shared-types",
+            "./src/utils"
+          ],
+          "from": ["./src/features", "./src/app"]
+        }
+      ]
+    }
+  ]
+```
+
+## Forbid cross feature imports
+
+To maintain modular independence within our application, we enforce strict rules against cross-feature imports. This practice ensures that each feature remains self-contained, fostering a cleaner and more organized codebase.
+
+```json
+  "import/no-restricted-paths": [
+    "error",
+    {
+      "zones": [
         {
-            target: [
-                './src/components',
-                './src/hooks',
-                './src/lib',
-                './src/shared-types',
-                './src/utils',
-            ],
-            from: ['./src/features', './src/app'],
-        },
-    ],
-    },
-],
+          "target": "./src/features/**/*.tsx",
+          "from": "./src/features/**/*.tsx",
+          "except": ["**/*.shared.tsx"],
+          "message": "To use a feature as a shared component in other features, add the middle extension '.shared' to the filename (e.g., 'feature.shared.tsx')."
+        }
+      ]
+    }
+  ]
 ```
