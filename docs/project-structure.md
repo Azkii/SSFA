@@ -97,3 +97,20 @@ To maintain modular independence within our application, we enforce strict rules
     }
   ]
 ```
+
+## Enforcing Directory and File Naming Conventions
+
+Enforce strict naming conventions for directories and files using [ls-lint](https://ls-lint.org/).
+Ls-lint ensures that all file and directory names in our codebase adhere to a consistent naming convention. This helps keep the project organized and easy to navigate, prevent naming conflicts and errors, and ensure a uniform structure that all team members can easily follow.
+
+```yml
+ls:
+  .dir: kebab-case # Directories must use kebab-case
+  .js: kebab-case # JavaScript files must use kebab-case
+  .jsx: kebab-case # JSX files must use kebab-case
+  .ts: kebab-case # TypeScript files must use kebab-case
+  .tsx: kebab-case # TSX files must use kebab-case
+  .d.ts: kebab-case # TypeScript declaration files must use kebab-case
+  .shared.tsx: regex:^[a-z0-9]+(?:-[a-z0-9]+)*(?:\.[a-zA-Z0-9-]+)*$ # Regext checks for kebab-case.*
+  .css: regex:^[a-z0-9]+(?:-[a-z0-9]+)*(?:\.[a-zA-Z0-9-]+)*$
+```
