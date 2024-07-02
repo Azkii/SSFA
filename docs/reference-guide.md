@@ -54,7 +54,7 @@ The development and design practice of building user interfaces with modular com
 
 ### Unidirectional Codebase Architecture
 
-Enforce unidirectional codebase architecture: code should flow in one direction, from shared parts of the code to the application (shared → features → app). [Learn More](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md).
+Enforce unidirectional codebase architecture: code should flow in one direction, from shared parts of the code to the application (shared → features → app). [Learn More](project-structure.md).
 
 ### Connect with External Services through Adapters
 
