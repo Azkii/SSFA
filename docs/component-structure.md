@@ -20,6 +20,7 @@ button/
 
 ```tsx
 // button.tsx
+
 import React, { ButtonHTMLAttributes, ReactNode } from "react";
 import clsx, { ClassArray } from "clsx";
 import style from "./button.module.scss";
